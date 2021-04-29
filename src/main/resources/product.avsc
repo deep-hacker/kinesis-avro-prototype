@@ -1,0 +1,11 @@
+{
+   "namespace": "com.cj.prototype.avro",
+   "type": "record",
+   "name": "product",
+   "fields": [
+      {"name": "id", "type": "int"},
+      {"name": "name", "type": "string"},
+      {"name": "price", "type": "double"},
+      {"name": "quantity", "type": "int"}
+   ]
+}
