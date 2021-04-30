@@ -1,0 +1,148 @@
+@namespace("com.cj.prototype.avro")
+protocol AdvertisablesProtocol {
+
+  record AmountWithCurrency {
+    union {null, string} amount = null;
+    union {null, string} currency = null;
+  }
+
+  record GoogleProductCategory {
+    union {null, string}  name = null;
+    union {null, int}     id = null;
+  }
+
+  record Tax {
+    union {null, string} rate = null;
+    union {null, string} countryCode = null;
+    union {null, string} region = null;
+    union {null, string} postalcode = null;
+    union {null, string} locationId = null;
+    union {null, string} locationGroupName = null;
+    union {null, boolean} taxShip = null;
+  }
+
+  record Shipping {
+    AmountWithCurrency price;
+    union {null, string} service = null;
+    union {null, string} locationGroupName = null;
+    union {null, string} region = null;
+    union {null, string} postalCode = null;
+    union {null, string} locationId = null;
+    union {null, string} country = null;
+    union {null, string} weight = null;
+    union {null, string} length = null;
+    union {null, string} width = null;
+    union {null, string} height = null;
+  }
+
+  record Address {
+    union {null, string} city = null;
+    union {null, string} provinceState = null;
+    union {null, string} streetAddress = null;
+    union {null, string} zipCode = null;
+    union {null, string} latitude = null;
+    union {null, string} longitude = null;
+    union {null, string} regionName = null;
+    union {null, string} country = null;
+    union {null, string} phoneNumber = null;
+  }
+
+  record AdditionalFee {
+    union {null, AmountWithCurrency}  amount = null;
+    union {null, string}              id = null;
+    union {null, string}              name = null;
+  }
+
+  record LoyaltyPoints {
+    union {null, string}  name = null;
+    union {null, int}     points = null;
+    union {null, string}  ratio = null;
+  }
+
+  record Installment {
+   union {null, int}                months = null;
+   union {null, AmountWithCurrency} amount = null;
+  }
+
+  record Product {
+    union {null, array<string>}       additionalImageLink = null;
+    string                            adId;
+    union {null, string}              advertiserCountry = null;
+    string                            advertiserId;
+    string                            advertiserName;
+    union {null, string}              brand = null;
+    string                            catalogId;
+    union {null, string}              customLabel0 = null;
+    union {null, string}              customLabel1 = null;
+    union {null, string}              customLabel2 = null;
+    union {null, string}              customLabel3 = null;
+    union {null, string}              customLabel4 = null;
+    string                            description;
+    string                            id;
+    union {null, string}              imageLink = null;
+    union {null, string}              itemListId = null;
+    union {null, string}              itemListName = null;
+    long                              lastUpdated;
+    union {null, string}              link = null;
+    union {null, string}              mobileLink = null;
+    AmountWithCurrency                price;
+    union {null, long}                publisherGroupId = null;
+    union {null, AmountWithCurrency}  salePrice = null;
+    union {null, long}                salePriceEffectiveEndDate = null;
+    union {null, long}                salePriceEffectiveStartDate = null;
+    boolean                           searchable = true;
+    union {null, string}              serviceableAreas = null;
+    union {null, Shipping}            shipping = null;
+    union {null, string}              targetCountry = null;
+    union {null, string}              title = null;
+    long                              currentAsOf;
+    boolean                           isDeleted = false;
+    union {null, string}              md5Sum = null;
+  }
+
+  record Shopping {
+    Product product;
+    union {null, string}                availability = null;
+    union {null, long}                  availabilityDate = null;
+    union {null, long}                  expirationDate = null;
+    union {null, string}                unitPricingMeasure = null;
+    union {null, string}                unitPricingBaseMeasure = null;
+    union {null, Installment}           installment = null;
+    union {null, string}                itemGroupId = null;
+    union {null, LoyaltyPoints}         loyaltyPoints = null;
+    union {null, GoogleProductCategory} googleProductCategory = null;
+    union {null, array<string>}         productType = null;
+    union {null, string}                gtin = null;
+    union {null, string}                mpn = null;
+    union {null, boolean}               identifierExists = null;
+    union {null, string}                condition = null;
+    union {null, boolean}               adult = null;
+    union {null, int}                   multipack = null;
+    union {null, boolean}               isBundle = null;
+    union {null, string}                energyEfficiencyClass = null;
+    union {null, string}                energyEfficiencyClassMin = null;
+    union {null, string}                energyEfficiencyClassMax = null;
+    union {null, string}                ageGroup = null;
+    union {null, string}                color = null;
+    union {null, string}                gender = null;
+    union {null, string}                material = null;
+    union {null, string}                minimumHandlingTime = null;
+    union {null, string}                maximumHandlingTime = null;
+    union {null, string}                pattern = null;
+    union {null, string}                size = null;
+    union {null, string}                sizeType = null;
+    union {null, string}                sizeSystem = null;
+    union {null, Tax}                   tax = null;
+  }
+
+  record ShoppingEvent {
+    long eventTime;
+    string decodeType = "SHOPPING";
+    string eventType;
+    string advertiserId;
+    string catalogId;
+    string productId;
+    union {null, Shopping} product;
+  }
+
+}

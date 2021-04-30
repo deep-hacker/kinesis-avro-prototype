@@ -10,7 +10,7 @@ class ProducerFactory {
     val config = new KinesisProducerConfiguration()
       .setRegion("us-east-1")
       .setCredentialsProvider(new AWSStaticCredentialsProvider(new BasicSessionCredentials(awsAccessKeyId,awsSecretAccessKey,awsSessionToken)))
-      .setRecordMaxBufferedTime(15000)
+      .setRecordMaxBufferedTime(5000)
       .setRequestTimeout(6000)
     new KinesisProducer(config)
   }
