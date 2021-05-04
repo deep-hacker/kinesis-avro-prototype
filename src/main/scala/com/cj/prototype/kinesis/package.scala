@@ -14,4 +14,8 @@ package object kinesis {
     listenable.addListener(callback, ExecutionContext.global)
     promise.future
   }
+
+  def every1Minute(counter: Int, waitMilli:Int) : Boolean = {
+    (counter * waitMilli) % (60000) < waitMilli
+  }
 }

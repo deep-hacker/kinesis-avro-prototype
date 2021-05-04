@@ -1,4 +1,4 @@
-@namespace("com.cj.prototype.avro")
+@namespace("com.cj.prototype.avroGenerated")
 protocol AdvertisablesProtocol {
 
   record AmountWithCurrency {

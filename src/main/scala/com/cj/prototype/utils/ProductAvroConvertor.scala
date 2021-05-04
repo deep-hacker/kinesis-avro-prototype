@@ -1,6 +1,6 @@
 package com.cj.prototype.utils
 
-import com.cj.prototype.avroGenerated.{AmountWithCurrency, Installment, Product, Shopping, ShoppingEvent}
+import com.cj.prototype.avroGenerated.{AmountWithCurrency, Product, Shopping, ShoppingEvent}
 import com.cj.prototype.model.KinesisEvent.{DELETE, EventType}
 import com.cj.prototype.model.{CJProduct, ProductCatalog}
 import org.apache.avro.specific.SpecificRecordBase

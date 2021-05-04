@@ -1,5 +1,5 @@
 package com.cj.prototype.handler
-import com.cj.prototype.kinesis.KinesisWriter
+import com.cj.prototype.kinesis.{KinesisWriter, KinesisWriterImpl}
 import com.cj.prototype.model.KinesisEvent.EventType
 import com.cj.prototype.model.{CJProduct, KinesisEvent, ProductCatalog, eventToBytes}
 import com.cj.prototype.utils.ProductAvroConvertor
@@ -28,7 +28,6 @@ class ProductChangeHandlerImpl(catalog: ProductCatalog,kinesisClient:KinesisWrit
     })
   }
   def publishProduct(product: CJProduct, catalog: ProductCatalog, eventType: EventType): Unit = {
-    if (kinesisClient.kinesisEnabled) {
       Try {
         val now = System.currentTimeMillis()
         ProductAvroConvertor.cjProductToAdvertisablesEvent(product, catalog, eventType, now, product.id) match {
@@ -38,6 +37,6 @@ class ProductChangeHandlerImpl(catalog: ProductCatalog,kinesisClient:KinesisWrit
           case Failure(e) => println(s"Failed to convert product due to ${e.getMessage}: not sending to kinesis.")
         }
       }
-    }
+
   }
 }
