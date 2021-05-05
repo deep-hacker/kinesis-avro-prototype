@@ -2,3 +2,4 @@
 Kinesis_Library_Prototype.iml
 target/
 */**.iml
+src/main/scala/com/cj/prototype/avroGenerated

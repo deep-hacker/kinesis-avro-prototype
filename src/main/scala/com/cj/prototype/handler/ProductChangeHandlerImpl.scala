@@ -1,5 +1,5 @@
 package com.cj.prototype.handler
-import com.cj.prototype.kinesis.{KinesisWriter, KinesisWriterImpl}
+import com.cj.prototype.kinesis.{KinesisWriter}
 import com.cj.prototype.model.KinesisEvent.EventType
 import com.cj.prototype.model.{CJProduct, KinesisEvent, ProductCatalog, eventToBytes}
 import com.cj.prototype.utils.ProductAvroConvertor

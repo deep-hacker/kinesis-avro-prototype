@@ -38,16 +38,13 @@ class KinesisWriterTest extends AnyFunSuite with Matchers{
         case Success(value) => {
           if (value.isSuccessful) {
             incrementSuccessCount
-            println(s"Sent successfully  with shardId: ${value.getShardId} and sequenceValue: ${value.getSequenceNumber}")
           }
           else {
             incrementFailureCount
-            println(s"Can't send data for $label after ${value.getAttempts.size()} attempts")
           }
         }
         case Failure(exception) => {
           incrementFailureCount
-          println(s"Error due to ${exception.getMessage}")
         }
       }
       futureResult
